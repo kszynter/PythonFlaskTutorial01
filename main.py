@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 
 app = Flask(__name__)
 
@@ -25,7 +25,7 @@ def about():
 # passing a variable value in the URL
 @app.route('/profile/<username>')
 def profile(username):
-    return 'Hello %s' % username
+    return render_template('profile.html', username=username)
 
 
 @app.route('/post/<int:post_id>')
