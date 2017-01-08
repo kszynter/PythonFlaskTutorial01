@@ -34,6 +34,12 @@ def post(post_id):
     return 'Post id is: %s' % post_id
 
 
+@app.route('/shopping')
+def shopping():
+    food = ["Cheese", "Tuna", "Beef"]
+    return render_template("shopping.html", food=food)
+
+
 # run the app only when this script is run directly
 # do nothing if this file is imported somewhere else
 if __name__ == "__main__":
