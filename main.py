@@ -4,8 +4,9 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def index():
-    return "Method used: %s" % request.method
+@app.route('/<user>')
+def index(user=None):
+    return render_template("user.html", user=user)
 
 
 @app.route('/form', methods=['GET', 'POST'])
