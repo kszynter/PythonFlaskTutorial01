@@ -1,11 +1,19 @@
-from flask import Flask
+from flask import Flask, request
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return 'This is the homepage'
+    return "Method used: %s" % request.method
+
+
+@app.route('/form', methods=['GET', 'POST'])
+def form():
+    if request.method == 'POST':
+        return 'Using POST\n'
+    else:
+        return 'Probably using GET\n'
 
 
 # decorator maps an URL to return value
